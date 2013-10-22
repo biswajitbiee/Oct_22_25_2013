@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>Lab 03</title>
+        <script>
+            function Account(accNum) {
+                var accountNumber = accNum;
+                var balance = 1000;
+                this.getBalance = function () {
+                    return balance;
+                };
+                this.deposit = function (amount) {
+                    balance += amount;
+                };
+                this.withdraw = function (amount) {
+                    balance -= amount;
+                }
+            }
+            var acc = new Account("3409839132");
+            acc.deposit(1000);
+            acc.withdraw(200);
+            console.log("Balance : " + acc.getBalance());
+            /*
+            public class Account{
+                private String accountNumber;
+                private double balance;
+                public Account(string theAccountNumber){
+                    accountNumber = theAccountNumber;
+                    balance = 10000;
+                }
+                public void deposit(double amount){
+                    balance += amount;
+                }
+                public void withdraw(double amount){
+                    balance -= amount;
+                }
+                public double getBalance(){
+                    return balance;
+                }
+       }
+   Account acc = new Account("3409839132");
+   acc.deposit(1000);
+   acc.withdraw(200);
+   System.out.println("Balance : " + acc.getBalance());
+            */
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
