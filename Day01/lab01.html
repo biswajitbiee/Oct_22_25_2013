@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Lab 01</title>
+        <script>
+            var results = [];
+            function showResults() {
+                var summary = "";
+                for (var key in results) {
+                    summary += key + ": " + results[key] + "<br/>";
+                }
+                document.getElementById("results").innerHTML = summary;
+                return false;
+            }
+            function add() {
+                var num1 = document.getElementById("num1text").value;
+                var num2 = document.getElementById("num2text").value;
+                results["Sum of " + num1 + " and " + num2] = (parseInt(num1) + parseInt(num2));
+            }
+            function subtract() {
+                var num1 = document.getElementById("num1text").value;
+                var num2 = document.getElementById("num2text").value;
+                results["Difference of " + num1 + " and " + num2] = (num1 - num2);
+            }
+            function multiply() {
+                var num1 = document.getElementById("num1text").value;
+                var num2 = document.getElementById("num2text").value;
+                results["Product of " + num1 + " and " + num2] = (num1 * num2);
+            }
+        </script>
+    </head>
+    <body>
+        Num1 <input type="text" id="num1text" />
+        Num2 <input type="text" id="num2text" /><br />
+        <input type="button" value="Add" onclick="add()" />
+        <input type="button" value="Subtract" onclick="subtract()" />
+        <input type="button" value="Multiply" onclick="multiply()" />
+        <br />
+        <input type="button" value="Show results" onclick="showResults()" />
+        <p id="results"></p>
+    </body>
+</html>
