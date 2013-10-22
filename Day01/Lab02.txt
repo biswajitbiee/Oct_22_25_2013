@@ -1,0 +1,10 @@
+var arr = [1,22,31,47,54,5,36,87,8];
+
+function compute(logic){
+	//loop the array and invoke the logic
+	//print the output
+}
+
+compute(/*Pass a function that checks for even numbers*/);
+compute(/*Pass a function that checks for odd numbers*/);
+compute(/*Pass a function that prints the square of each*/);
