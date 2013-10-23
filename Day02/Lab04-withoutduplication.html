@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Lab 04</title>
+        <script src="jquery-2.0.3.min.js"></script>
+        <script>
+            function octetEntered() {
+                if ($(this).val().length == 3)
+                    $(this).next().focus();
+            }
+
+            function buttonClicked() {
+                $("#octet1,#octet2,#octet3,#octet4").attr("disabled", "disabled");
+            }
+            $().ready(function () {
+                $("#octet1,#octet2,#octet3,#octet4").on("keyup", octetEntered);
+                $("input:button").on("click", buttonClicked);
+            });
+        </script>
+	</head>
+	<body>
+        Ipaddress: 
+        <input type="text" id="octet1" maxlength="3" style="width:30px"/>.
+        <input type="text" id="octet2" maxlength="3" style="width:30px"/>.
+        <input type="text" id="octet3" maxlength="3" style="width:30px"/>.
+        <input type="text" id="octet4" maxlength="3" style="width:30px"/><br />
+        <input type="button" value="Click" />
+	</body>
+</html>
