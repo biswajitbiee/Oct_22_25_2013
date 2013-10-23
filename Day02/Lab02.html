@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Page 2</title>
+        <script src="jquery-2.0.3.min.js"></script>
+        <script>
+            function doSomething() {
+                var summary = "";
+                summary += "Speaker: " + $("#speakertext").val() + "<br/>";
+                var talks = $("#talksrange").val();
+                summary += "Number of talks: " + talks;
+                summary += talks > 10 ? "(Premium speaker)" : "";
+                summary += "<br/>";
+                summary += "Experience: " + $("#experiencenum").val() + "<br/>";
+                var blog = $("#blogurl").val();
+                summary += "Blog:";
+                summary += blog == "" ? "-- (That's bad)" : blog;
+                summary += "<br/>";
+                $("#summary").html(summary);
+            }
+        </script>
+	</head>
+	<body>
+		Speaker: <input type="text" placeholder="firstname lastname" id="speakertext"> <br/>
+		Experience: <input type="number" max="15" min="5" id="experiencenum"> <br/>
+		No of talks <input type="range" max="20" min="5" id="talksrange"> <br/>
+	Blog: <input type="url" id="blogurl"> <br/>
+	Arrival date: <input type="date" id="arrivaldate"> <br/>
+	<input type="button" value="Add" onclick="doSomething();">
+    <br />
+    <p id="summary"></p>
+	</body>
+</html>
