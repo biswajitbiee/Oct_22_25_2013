@@ -1,9 +1,18 @@
 <html>
 	<head>
-		<title>Late by 12 minutes</title>
+		<title>Late by 16 minutes</title>
         <script>
             //IMPLEMENT message function ONLY
-
+            function message() {
+                var output1 = arguments[0];
+                return function () {
+                    var output2 = output1 + " " + arguments[0];
+                    return function () {
+                        var output3 = output2 + " " + arguments[0];
+                        return output3;
+                    }
+                }
+            }
             var output = message("I");
             var output2 = output("apologize");
             var output3 = output2("for being late");
