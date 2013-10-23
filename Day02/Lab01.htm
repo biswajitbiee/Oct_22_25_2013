@@ -6,7 +6,30 @@
      <script>
 
          function lex(elemId) {
-             //IMPLEMENT THIS FUNCTION
+             var id = elemId.substring(1);
+             var jsonObj = {
+                 increment: function () {
+                     var elem = document.getElementById(id);
+                     elem.value = parseInt(elem.value) + 1;
+                 },
+                 square: function () {
+                     var elem = document.getElementById(id);
+                     elem.value = parseInt(elem.value) * parseInt(elem.value);
+                 },
+                 reset: function () {
+                     var elem = document.getElementById(id);
+                     elem.value = 0;
+                 },
+                 val: function () {
+                     var elem = document.getElementById(id);
+                     return elem.value;
+                 },
+                 html: function (text) {
+                     var elem = document.getElementById(id);
+                     elem.innerHTML = text;
+                 }
+             };
+             return jsonObj;
          }
          function increment() {
              lex("#numbertext").increment();
