@@ -4,15 +4,15 @@
         <script src="jquery-2.0.3.min.js"></script>
         <script>
             function octetEntered() {
-                if ($(this).val().length == 3)
-                    $(this).next().focus();
+                if (jQuery(this).val().length == 3)
+                    jQuery(this).next().focus();
             }
 
             function buttonClicked() {
-                $("#octet1,#octet2,#octet3,#octet4").attr("disabled", "disabled");
+                $("input:text").attr("disabled", "disabled");
             }
             $().ready(function () {
-                $("#octet1,#octet2,#octet3,#octet4").on("keyup", octetEntered);
+                $("input:text").on("keyup", octetEntered);
                 $("input:button").on("click", buttonClicked);
             });
         </script>
