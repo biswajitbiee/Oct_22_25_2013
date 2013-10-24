@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>jQuery UI</title>
+    <link href="base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <script src="jquery-2.0.3.min.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        function showDialog() {
+            $("#dlg").dialog();
+            //$("#dlg").show();
+        }
+        $().ready(function () {
+            $("#datetext").datepicker();
+            $("#clickbtn").button();
+            $("input:button").on("click", showDialog);
+            $("#yesbtn").on("click", function () {
+                $("#dlg").dialog("close");
+            });
+            $("#nobtn").on("click", function () {
+                $("#dlg").dialog("close");
+                $("#clickbtn").attr("disabled", "disabled");
+            });
+        });
+    </script>
+</head>
+<body>
+    Date of birth<input type="text" id="datetext"/><br />
+    <input type="button" value="Click" id="clickbtn" />
+    <div style="display:none;height:100px;width:100px;" id="dlg">
+        <p>Do you want to continue?</p>
+        <input type="button" id="yesbtn" value="Yes" />
+        <input type="button" id="nobtn" value="No" />
+    </div>
+</body>
+</html>
