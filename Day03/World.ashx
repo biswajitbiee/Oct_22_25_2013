@@ -14,7 +14,7 @@ public class World : IHttpHandler {
         else if (country == "USA")
             output = "{\"capital\":\"Washington DC\",\"continent\":\"NA\",\"population\":\"100 million\"}";
         else if (country == "UK")
-            output = "{\"capital\":\"London\",\"continent\":\"Europe\",\"population\":\"6.5 million\"}"; ;
+            output = "{\"capital\":\"London\",\"continent\":\"Europe\",\"population\":\"6.5 million\"}"; 
         context.Response.Write(output);
     }
  
