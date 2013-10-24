@@ -5,7 +5,7 @@ Create a file Lab01.html that has a <form> with the following
 4) a submit button
 
 The country list box will be populated with the following countries loaded from Country.jsp/Country.ashx file in JSON format.
-India, USA, UK.
+
 
 On selecting a country, the cities of that country will get loaded from City.jsp/City.ashx 
 
