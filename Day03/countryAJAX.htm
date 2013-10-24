@@ -8,11 +8,12 @@
         function getDataFromServer() {
             $.ajax({
                 url: "World.ashx",
+                dataType : "json",
                 data: {
                     country: $("#countrytext").val()
                 },
                 success: function (response) {
-                    $("#capitalh1").html(response);
+                    $("#capitalh1").html(response.capital + ", " + response.continent + ", " + response.population);
                 }
             });
         }
@@ -25,7 +26,7 @@
             });
         }
         $().ready(function () {
-            window.setInterval("displayTime()", 1000);
+            setInterval("displayTime()", 1000);
             $("input:button").on("click", getDataFromServer);
         });
     </script>

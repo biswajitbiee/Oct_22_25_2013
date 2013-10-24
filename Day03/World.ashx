@@ -8,13 +8,13 @@ public class World : IHttpHandler {
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
         string country = context.Request["country"];
-        string output = "Not available in DB";
+        string output = "{\"capital\":\"Not available in DB\",\"continent\":\"Not available in DB\",\"population\":\"Not available in DB\"}";
         if (country == "India")
-            output = "New Delhi";
+            output = "{\"capital\":\"New Delhi\",\"continent\":\"Asia\",\"population\":\"1.2 billion\"}";
         else if (country == "USA")
-            output = "Washington DC";
+            output = "{\"capital\":\"Washington DC\",\"continent\":\"NA\",\"population\":\"100 million\"}";
         else if (country == "UK")
-            output = "London";
+            output = "{\"capital\":\"London\",\"continent\":\"Europe\",\"population\":\"6.5 million\"}"; ;
         context.Response.Write(output);
     }
  

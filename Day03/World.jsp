@@ -1,11 +1,11 @@
 ﻿<%
 		String country = request.getParameter("country");
-        String output = "Not available in DB";
+        String output = "{\"capital\":\"Not available in DB\",\"continent\":\"Not available in DB\",\"population\":\"Not available in DB\"}";
         if ("India".equals(country))
-            output = "New Delhi";
+            output = "{\"capital\":\"New Delhi\",\"continent\":\"Asia\",\"population\":\"1.2 billion\"}";
         else if ("USA".equals(country))
-            output = "Washington DC";
+            output = "{\"capital\":\"Washington DC\",\"continent\":\"NA\",\"population\":\"100 million\"}";
         else if ("UK".equals(country))
-            output = "London";
+            output = "{\"capital\":\"London\",\"continent\":\"Europe\",\"population\":\"6.5 million\"}";
         out.println(output);
 %>
