@@ -1,0 +1,21 @@
+Create a file Lab01.html that has a <form> with the following 
+1) a text box to enter the name
+2) a drop down list to select a country
+3) a drop down list to select a city
+4) a submit button
+
+The country list box will be populated with the following countries loaded from Country.jsp/Country.ashx file in JSON format.
+India, USA, UK.
+
+On selecting a country, the cities of that country will get loaded from City.jsp/City.ashx 
+
+The country and city information will be loaded using AJAX.
+
+On selecting the country, city and entering a name, when you hit the submit button, your form will be submitted to ProcessPage.jsp/ProcessPage.ashx which will give you a confirmation message. There's no AJAX for this operation
+
+
+Note:
+1) The cities for a particular country will be loaded from the server only once. After that, it will get loaded from the local copy only.
+
+2) The Country.jsp/ashx, City.jsp/ashx and ProcessPage.jsp/ashx files are given to you. You just need to copy them to your server. You don't need to modify them.
+
