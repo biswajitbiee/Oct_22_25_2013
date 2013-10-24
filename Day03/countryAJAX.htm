@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>With AJAX</title>
+    <script src="jquery-2.0.3.min.js"></script>
+    <script>
+        function getDataFromServer() {
+            $.ajax({
+                url: "World.ashx",
+                data: {
+                    country: $("#countrytext").val()
+                },
+                success: function (response) {
+                    $("#capitalh1").html(response);
+                }
+            });
+        }
+        function displayTime() {
+            $.ajax({
+                url: "Clock.ashx",
+                success: function (response) {
+                    $("#timeh1").html(response);
+                }
+            });
+        }
+        $().ready(function () {
+            window.setInterval("displayTime()", 1000);
+            $("input:button").on("click", getDataFromServer);
+        });
+    </script>
+</head>
+<body>
+        <h1 id="timeh1"></h1>
+        Country <input type="text" id="countrytext" /><br />
+        <input type="button" value="Get capital" />
+        <h1 id="capitalh1"></h1>
+</body>
+</html>
