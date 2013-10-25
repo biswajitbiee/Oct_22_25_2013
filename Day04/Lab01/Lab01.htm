@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #logoutbtn 
+        {
+            float : right;
+            position : relative;
+            top : -5px;    
+        }
+    
+    </style>
+    <title>Lab 01</title>
+    <script src="../jquery-2.0.3.min.js"></script>
+    <script>
+        var cityCopyArr = [];
+        function populateCitiesBox(cities) {
+            $("#cityselect").html("<option>--SELECT--</option>");
+            for (var i = 0; i < cities.length; i++) {
+                var option = "<option value='" + cities[i] + "'>" + cities[i] + "</option>";
+                $("#cityselect").append(option);
+            }
+        }
+        function populateCountriesBox(countries) {
+            for (var i = 0; i < countries.length; i++) {
+                var option = "<option value='" + countries[i] + "'>" + countries[i] + "</option>";
+                $("#countryselect").append(option);
+            }
+        }
+        function loadCountriesFromLocalStorage() {
+            var countries = localStorage.getItem("countries");
+            countries = countries.split(",");
+            populateCountriesBox(countries);
+        }
+        function loadCountriesFromServer() {
+            $.ajax({
+                url: "Country.ashx",
+                dataType: "json",
+                success: function (response) {
+                    localStorage.setItem("countries", response.countries);
+                    populateCountriesBox(response.countries);
+                }
+            });
+        }
+
+        function loadCities() {
+            var country = $("#countryselect").val();
+            if (cityCopyArr.hasOwnProperty(country))
+                populateCitiesBox(cityCopyArr[country]);
+            else {
+                $.ajax({
+                    url: "City.ashx",
+                    dataType: "json",
+                    type : "post",
+                    data: {
+                        country: country
+                    },
+                    success: function (response) {
+                        cityCopyArr[country] = response.cities;
+                        populateCitiesBox(response.cities);
+                    }
+                });
+
+            } 
+                    }
+                    $().ready(function () {
+                        $("#logoutbtn").on("click", function () {
+                            localStorage.removeItem("countries");
+                            console.log(localStorage.getItem("countries"));
+                        });
+                        if (localStorage.getItem("countries"))
+                            loadCountriesFromLocalStorage();
+                        else
+                            loadCountriesFromServer();
+                        $("#countryselect").on("change", loadCities);
+                    });
+    </script>
+</head>
+<body>
+    <input type="button" value="Logout" id="logoutbtn" /><br />
+    <hr />
+    <form action="ProcessPage.ashx" method="post">
+        Name <input type="text" id="nametext" name="name" /><br />
+        Country <select id="countryselect" name="country">
+            <option value="--SELECT--">--SELECT--</option>
+        </select><br />
+        City <select id="cityselect" name="city">
+            <option value="--SELECT--">--SELECT--</option>
+        </select><br />
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
