@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Page visibility</title>
+    <script>
+        /*
+            document.addEventListener("msvisibilitychange",doSomething);
+        function doSomething() {
+            var video = document.getElementById("videoelem");
+            if (document.msHidden)
+                video.pause();
+            else
+                video.play();
+        }
+        */
+        /*document.addEventListener("mozvisibilitychange", doSomething);
+        function doSomething() {
+            var video = document.getElementById("videoelem");
+            if (document.mozHidden)
+                video.pause();
+            else
+                video.play();
+        }*/
+
+        document.addEventListener("webkitvisibilitychange",doSomething);
+        function doSomething() {
+            var video = document.getElementById("videoelem");
+            if (document.webkitHidden)
+                video.pause();
+            else
+                video.play();
+        }
+    </script>
+</head>
+<body>
+    <video id="videoelem" src="UsingXtype.mp4" controls height="200px" width="200px"></video>
+</body>
+</html>
