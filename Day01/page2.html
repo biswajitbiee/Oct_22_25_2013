@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Page 2</title>
+        <script>
+            function doSomething() {
+                var summary = "";
+                summary += "Speaker: " + document.getElementById("speakertext").value + "<br/>";
+                var talks = document.getElementById("talksrange").value;
+                summary += "Number of talks: " + talks;
+                summary += talks > 10 ? "(Premium speaker)" : "";
+                summary += "<br/>";
+                summary += "Experience: " + document.getElementById("experiencenum").value + "<br/>";
+                var blog = document.getElementById("blogurl").value;
+                summary += "Blog:";
+                summary += blog == "" ? "-- (That's bad)" : blog;
+                summary += "<br/>";
+                document.getElementById("summary").innerHTML = summary;
+
+
+
+
+//                var para1 = document.getElementById("summary");
+//                para1.innerHTML = "Summary goes here";
+
+//                var speaker = document.getElementById("speakertext").value;
+//                var talks = document.getElementById("talksrange").value;
+//                console.log("Speaker : " + speaker);
+//                console.log("Number of talks : " + talks);
+//                if (talks > 10)
+//                    console.log("You're a premium speaker");
+//                var blog = document.getElementById("blogurl").value;
+//                if (blog == "")
+//                    alert("No blog. Bad!!!");
+            }
+        </script>
+	</head>
+	<body>
+		Speaker: <input type="text" placeholder="firstname lastname" id="speakertext"> <br/>
+		Experience: <input type="number" max="15" min="5" id="experiencenum"> <br/>
+		No of talks <input type="range" max="20" min="5" id="talksrange"> <br/>
+	Blog: <input type="url" id="blogurl"> <br/>
+	Arrival date: <input type="date" id="arrivaldate"> <br/>
+	<input type="button" value="Add" onclick="doSomething();">
+    <br />
+    <p id="summary"></p>
+	</body>
+</html>

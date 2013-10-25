@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+    <title>JS example 1</title>
+    <script>
+        function add(){
+            var sum = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                if(typeof(arguments[i]) == "number")
+                    sum += arguments[i];
+            }
+            console.log("Sum: " + sum);
+        }
+        add(1,2,3,4,"c++");
+        add(12.2, 122.123, 344.45, 3, 56.7, 889.98);
+        add(1,2,3,45,5,6,6,7,8,7,7,7,88,9,9,99,9,20,10);
+
+        function work() {
+            console.log("****WORKING****");
+            for (var i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+        work();
+        work("all day");
+        work(24, 7, 365, "days");
+        work(false);
+        work("I", "dont", "like", "to", "work");
+
+        //Hoisting
+        sleep();
+        function sleep() {
+            console.log("sleeping");
+        }
+
+        function eat(items) {
+            console.log("Eating " + items);
+        }
+        eat("Roti");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

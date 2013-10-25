@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Lab 01</title>
+     <script>
+
+         function lex(elemId) {
+             var id = elemId.substring(1);
+             var jsonObj = {
+                 increment: function () {
+                     var elem = document.getElementById(id);
+                     elem.value = parseInt(elem.value) + 1;
+                 },
+                 square: function () {
+                     var elem = document.getElementById(id);
+                     elem.value = parseInt(elem.value) * parseInt(elem.value);
+                 },
+                 reset: function () {
+                     var elem = document.getElementById(id);
+                     elem.value = 0;
+                 },
+                 val: function () {
+                     var elem = document.getElementById(id);
+                     return elem.value;
+                 },
+                 html: function (text) {
+                     var elem = document.getElementById(id);
+                     elem.innerHTML = text;
+                 }
+             };
+             return jsonObj;
+         }
+         function increment() {
+             lex("#numbertext").increment();
+         }
+         function square() {
+             lex("#numbertext").square();
+         }
+         function reset() {
+             lex("#numbertext").reset();
+         }
+         function printInConsole() {
+             lex("#result").html(lex("#numbertext").val());
+         }
+    </script>
+</head>
+<body>
+     Number <input type="text" id="numbertext" /><br />
+    <input type="button" value="Increment" onclick="increment()" />
+    <input type="button" value="Square" onclick="square()" />
+    <input type="button" value="Reset" onclick="reset()" />
+    <input type="button" value="Print" onclick="printInConsole()" />
+
+    <div id="result">
+    </div>
+
+</body>
+</html>

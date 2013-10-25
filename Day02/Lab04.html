@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Lab 04</title>
+        <script src="jquery-2.0.3.min.js"></script>
+        <script>
+            function octet1Entered() {
+                if ($("#octet1").val().length == 3)
+                    $("#octet2").focus();
+            }
+            function octet2Entered() {
+                if ($("#octet2").val().length == 3)
+                    $("#octet3").focus();
+            }
+            function octet3Entered() {
+                if ($("#octet3").val().length == 3)
+                    $("#octet4").focus();
+            }
+            function octet4Entered() {
+                if ($("#octet4").val().length == 3)
+                    $("input:button").focus();
+            }
+            function buttonClicked() {
+                $("#octet1,#octet2,#octet3,#octet4").attr("disabled", "disabled");
+            }
+            $().ready(function () {
+                $("#octet1").on("keyup", octet1Entered);
+                $("#octet2").on("keyup", octet2Entered);
+                $("#octet3").on("keyup", octet3Entered);
+                $("#octet4").on("keyup", octet4Entered);
+                $("input:button").on("click", buttonClicked);
+            });
+        </script>
+	</head>
+	<body>
+        Ipaddress: 
+        <input type="text" id="octet1" maxlength="3" style="width:30px"/>.
+        <input type="text" id="octet2" maxlength="3" style="width:30px"/>.
+        <input type="text" id="octet3" maxlength="3" style="width:30px"/>.
+        <input type="text" id="octet4" maxlength="3" style="width:30px"/><br />
+        <input type="button" value="Click" />
+	</body>
+</html>

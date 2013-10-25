@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>jQuery 3</title>
+    <script src="jquery-2.0.3.min.js"></script>
+    <script>
+        function doSthg() {
+            $("p").each(function () {
+                alert($(this).html());
+            });
+            //alert($("p").length);
+            //alert($("p").html());
+        }
+        $().ready(function () {
+            doSthg();
+        });
+    </script>
+</head>
+<body>
+    <p>This is para 1</p>
+    <p>This is para 2</p>
+    <p>This is para 3</p>
+</body>
+</html>

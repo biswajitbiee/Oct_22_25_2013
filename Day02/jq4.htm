@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>jQuery 3</title>
+    <script src="jquery-2.0.3.min.js"></script>
+    <script>
+        function add() {
+            $("#results").append("<input type='button' value='cool'>");
+            $("#results").prepend("<input type='text'>");
+        }
+        $().ready(function () {
+            $("input:button").on("click", add);
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="Click" />
+    <div id="results">
+        Insert
+    </div>
+</body>
+</html>

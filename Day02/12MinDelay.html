@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Late by 12 minutes</title>
+        <script>
+            /*
+            Dynamically construct a querystring from a JSON object and print it to the console.
+            For example if the JSON object is             
+            var data = {
+	            name : "XYZ",
+	            delay : 12,
+	            unit : "minutes",
+	            message : "apologize for being late"
+            };
+            QueryString will be of the format
+            name=XYZ&delay=12&unit=minutes&message=apologize%20%for%20%being%20% late
+            */
+            function convertToQueryString(obj) {
+                var qs = "";
+                for (var key in obj) {
+                    qs += key + "=";
+                    if (typeof (obj[key]) == "string") {
+                        var spaceArr = obj[key].split(" ");
+                        if (spaceArr.length > 0) {
+                            for (var i = 0; i < spaceArr.length; i++) {
+                                if (i == spaceArr.length - 1)
+                                    qs += spaceArr[i];
+                                else
+                                    qs += spaceArr[i] + "%20%";
+                            }
+                        }
+                        
+                    }
+                    else
+                        qs += obj[key];
+                    qs += "&";
+                }
+                console.log(qs);
+            }
+            convertToQueryString({
+                name: "XYZ",
+                delay: 12,
+                unit: "minutes",
+                message: "apologize for being late"
+            });
+            convertToQueryString({
+                data: "SORRY",
+                name : "ABC"
+            });
+        </script>
+	</head>
+	<body>
+	</body>
+</html>

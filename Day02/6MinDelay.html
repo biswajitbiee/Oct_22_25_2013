@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>Late by 6 minutes</title>
+        <script>
+            //MAKE THIS CODE WORK WITHOUT ADDING jQuery.js
+            function $() {
+                return {
+                    ready: function (fn) {
+                        fn();
+                    }
+                };
+            }
+            $().ready(function () {
+                alert("I am sorry for the delay");
+            });
+        </script>
+	</head>
+	<body>
+	</body>
+</html>

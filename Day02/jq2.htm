@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>jQuery 2</title>
+    <script src="jquery-2.0.3.min.js"></script>
+    <script>
+        function doSthg() {
+            //var name = document.getElementById("nametext").value;
+            var name = $("#nametext").val();
+            $("#newsletterchk").hide();
+            $("#header1").html("Hi " + name);
+            $("#header1").css("color", "red");
+            $("#nametext").val(name.toUpperCase());
+
+            //document.getElementById("newsletterchk").style.display = "none";
+        }
+        $().ready(function () {
+            $("#clickbtn").on("click", doSthg);
+            $("#nametext").focus();
+        });
+    </script>
+</head>
+<body>
+    <h1 id="header1"></h1>
+    Name <input type="text" id="nametext" /><br />
+    Newsletter <input type="checkbox" id="newsletterchk" /><br />
+    <input type="button" value="Click" id="clickbtn"/>
+</body>
+</html>

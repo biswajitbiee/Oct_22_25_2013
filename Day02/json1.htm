@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>JSON 1</title>
+    <script>
+        function read(obj) {
+            console.log("Reading " + obj.title); 
+        }
+        var book = {
+            title: "Practical Ext JS 4",
+            price: 3200,
+            publisher: "Apress",
+            author: {
+                name : "Prabhu",
+                city : "Chennai"
+            },
+            buy: function () {
+                console.log("Buying " + this.title);
+            },
+            sites : ["Amazon","Flipkart"]
+        };
+        //book.author.city
+        read(book);
+        book.buy();
+        var country = {
+            name : "India",
+            capital : "New Delhi",
+            continent : "Asia"
+        };
+        console.log(country.name + ", " + country.capital);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

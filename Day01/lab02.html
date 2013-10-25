@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Lab 02</title>
+        <script>
+            var arr = [1, 22, 31, 47, 54, 5, 36, 87, 8];
+
+            function compute(logic) {
+                var output = [];
+                for (var i = 0; i < arr.length; i++) { 
+                    output.push(logic(arr[i]));
+                }
+                for (var i = 0; i < output.length; i++) {
+                    console.log(output[i]);
+                }
+                console.log("****************************");
+            }
+            compute(function (num) { if (num % 2 == 0) return num + " is even"; return num + " is not even"; });
+            compute(function (num) { if (num % 2 != 0) return num + " is odd"; return num + " is not odd"; });
+            compute(function (num) { return num * num; });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+﻿<html>
+<head>
+    <title>JS example 4</title>
+    <script>
+        function confuse() {
+            return function () {
+                console.log("Thoroughly confused");
+            };
+        }
+        var output = confuse();
+        output();
+        //confuse()();
+        function work(doSthg) {
+            doSthg();
+        }
+        var eat = function () {
+            console.log("Eating");
+        };
+        work(eat); //work(eat());
+        work(function () { console.log("what the hell"); });
+
+        //eat();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

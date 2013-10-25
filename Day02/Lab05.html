@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>Lab 05</title>
+        <script src="jquery-2.0.3.min.js"></script>
+        <script>
+            function createTable() {
+                var table = "<table border='1'>";
+                table += "<thead>";
+                table += "<tr><th>Name</th><th>Age</th><th>Remove</th></tr>";
+                table += "</thead>";
+                table += "<tbody></tbody>";
+                table += "</table>";
+                table += "</table>";
+                $("#results").append(table);
+            }
+
+            function createRemoveButton() {
+                var btn = "<input type='button' value='Remove'>";
+                $("#results").append(btn);
+                $("#results input:button").on("click", removePersons);
+            }
+            function removePersons() {
+                $("input:checked").each(function () {
+                    $(this).parents("tr").remove();
+                });
+            }
+
+            function addRow(name, age) {
+                var row = "<tr>";
+                row += "<td>" + name + "</td>";
+                row += "<td>" + age + "</td>";
+                row += "<td><input type='checkbox'></td>";
+                row += "</tr>";
+                $("tbody").append(row);
+            }
+            function addPerson() {
+                if ($("table").length == 0) {
+                    createTable();
+                    createRemoveButton();
+                }
+                var name = $("#nametext").val();
+                var age = $("#agetext").val();
+                addRow(name, age);
+                $("#nametext").select();
+            }
+            $().ready(function () {
+                $("#addbutton").on("click", addPerson);
+            });
+        </script>
+	</head>
+	<body>
+        Name <input type="text" id="nametext" /><br />
+        Age <input type="text" id="agetext" /><br />
+        <input type="button" value="Add" id="addbutton"/><br />
+        <div id="results"></div>
+	</body>
+</html>

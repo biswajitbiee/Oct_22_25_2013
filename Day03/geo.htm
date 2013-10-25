@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="jquery-2.0.3.min.js" type="text/javascript"></script>
+    <script src="jquery-maps.js" type="text/javascript"></script>
+    <script>
+        $().ready(function () {
+            $("#mapplaceholder").map();
+        });
+        /*navigator.geolocation.getCurrentPosition(details);
+        
+        function details(position) {
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+        }*/
+    </script>
+</head>
+<body>
+    <div id="mapplaceholder" style="width: 500px; height: 500px">
+    </div>
+</body>
+</html>
