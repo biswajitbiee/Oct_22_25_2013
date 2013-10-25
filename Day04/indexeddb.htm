@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script>
+        var country1 = { name: "India", capital: "New Delhi", cities: ["Chennai", "Pune"] };
+        var country2 = { name: "USA", capital: "Washington DC", cities: ["NY", "NJ"] };
+        var db;
+        var request = indexedDB.open("Lexmark");
+
+        //CALLED EVERYTIME
+        request.onsuccess = function (e) {
+            console.log("***Lexmark database OPENED SUCCESSFULLY");
+            db = e.target.result;
+        }
+
+        //CALLED ONLY FOR THE FIRST TIME WHEN DB IS NOT FOUND
+        request.onupgradeneeded = function (e) {
+            db = e.target.result;
+            
+            db.createObjectStore("Globe", {
+                keyPath : "name"
+            });
+            console.log("***Lexmark/Globe created successfully");
+        }
+        function addData() {
+            var txn = db.transaction(["Globe"], "readwrite");
+            var globe = txn.objectStore("Globe");
+
+            //globe.add(document.getElementById("btn1"));
+            globe.add(country1);
+            globe.add(country2);
+
+            txn.oncomplete = function () {
+                console.log("Added data successfully");
+            }
+            txn.onerror = function (e) {
+                console.log("*****ERROR!!!");
+                console.log(e);
+            }
+        }
+        function getData() {
+            var country = document.getElementById("countrytext").value;
+            var txn = db.transaction(["Globe"], "readwrite");
+            var globe = txn.objectStore("Globe");
+            var req = globe.get(country);
+            txn.oncomplete = function () {
+                console.log("****LOADED");
+                var countryObj = req.result;
+                console.log(countryObj);
+            }
+            txn.onerror = function (e) {
+                console.log("*****ERROR!!!");
+                console.log(e);
+            }
+        }
+        function removeData() {
+            var country = document.getElementById("countrytext").value;
+            var txn = db.transaction(["Globe"], "readwrite");
+            var globe = txn.objectStore("Globe");
+            var req = globe.delete(country);
+            txn.oncomplete = function () {
+                console.log("****Deleted");
+            }
+            txn.onerror = function (e) {
+                console.log("*****ERROR!!!");
+                console.log(e);
+            }
+        }
+        //indexedDB.deleteDatabase("Lexmark");
+    </script>
+</head>
+<body>
+    Country <input type="text" id="countrytext" />
+    <input type="button" value="Remove" onclick="removeData()" />
+    <input type="button" value="Get Info" onclick="getData()" /><br />
+    <input type="button" value="Add data" onclick="addData();" name="btn1" id="btn1"/>
+</body>
+</html>
