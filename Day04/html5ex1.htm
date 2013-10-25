@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        beside 
+        {
+            float : right;
+            width : 100px;
+            position : relative;  
+            top : -60px; 
+            -webkit-transform : rotate(-10deg);
+            -webkit-box-shadow: 5px 5px 5px pink;
+            -moz-box-shadow: 5px 5px 5px pink;
+            -ms-box-shadow: 5px 5px 5px pink;
+            -moz-transform : rotate(-10deg); 
+            -ms-transform : rotate(-10deg);
+        }    
+        fieldset
+        {
+            background-color : Yellow;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Speakers</h1>
+    </header>
+    <nav>
+        Session | Schedule | Speakers
+    </nav>
+    <br />
+    <section>
+        <header>Scott Davis</header>
+        <article>
+            ThirstyHead,<br />
+            Projector, Large room
+        </article>
+        <beside>
+            Scott is a cool guy with long hair
+        </beside>
+    </section><br /><br />
+     <section>
+        <header>Venkat Subramaniam</header>
+        <article>
+            Agile Developer
+        </article>
+        <beside>
+            Venkat is a programmer
+        </beside>
+    </section>
+   <br />
+    <section>
+        <fieldset>
+            <legend>Add a speaker</legend>
+            <form>
+                <label>Name</label>
+                <input type="text" placeholder="firstname lastname" required /><br />
+                <label>Email</label>
+                <input type="email" required /><br />
+                <label>Website</label>
+                <input type="url"  required /><br />
+                <label>Talks</label>
+                <input type="number" max="20" min="2" /><br />
+                <label>Arrival date</label>
+                <input type="date" required /><br />
+                <input type="submit" value="Add" />
+            </form>
+        </fieldset>
+    </section>
+     <footer>
+        <h6>Copyrights reserved, 2013.</h6>
+    </footer>
+</body>
+</html>
