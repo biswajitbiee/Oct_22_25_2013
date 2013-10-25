@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="jquery-2.0.3.min.js"></script>
+    <script>
+        function backOrForwardButtonClicked(event) {
+            var data = event.state;
+            $("input:text").val(data.name);
+            $("h1").html("Hello " + data.name);
+        }
+        function display() {
+            var name = $("input:text").val();
+            $("h1").html("Hello " + name);
+            $("input:text").select();
+            var data = {
+                name: name
+            };
+            window.history.pushState(data);
+        }
+        $().ready(function () {
+            $("input:button").on("click", display);
+            window.onpopstate = backOrForwardButtonClicked;
+        });
+    </script>
+</head>
+<body>
+    <h1></h1>
+    Name <input type="text" /><br />
+    <input type="button" value="Click" />
+</body>
+</html>
