@@ -1,0 +1,12 @@
+﻿CACHE MANIFEST
+#version 1.1
+
+CACHE:
+Page1.htm
+lexmark.css
+
+NETWORK:
+lexmark.js
+
+FALLBACK:
+Page2.htm  Lexmark.htm
